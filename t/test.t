@@ -17,6 +17,7 @@ $newsml->addNews(
 
 $newsml->addNews(
 	datetime	=> '20070913T102418',
+	id			=> 342,
 	title		=> 'News Title 2',
 	keywords	=> 'keyword line, second',
 	content		=> 'News Content 2',
@@ -25,6 +26,8 @@ $newsml->addNews(
 
 $newsml->addNews(
 	datetime	=> '20070913T102419',
+	id			=> 343,
+	revision	=> 14,
 	title		=> 'News Title 3',
 	keywords	=> 'alpha, beta, gamma',
 	content		=> 'News Content 2',
@@ -73,7 +76,7 @@ $result = <<RESULT;
       <NewsIdentifier>
         <ProviderId>example.com</ProviderId>
         <DateId>20070913</DateId>
-        <NewsItemId>1</NewsItemId>
+        <NewsItemId>342</NewsItemId>
         <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
         <PublicIdentifier/>
       </NewsIdentifier>
@@ -107,8 +110,8 @@ $result = <<RESULT;
       <NewsIdentifier>
         <ProviderId>example.com</ProviderId>
         <DateId>20070913</DateId>
-        <NewsItemId>1</NewsItemId>
-        <RevisionId PreviousRevision="0" Update="N">1</RevisionId>
+        <NewsItemId>343</NewsItemId>
+        <RevisionId PreviousRevision="0" Update="N">14</RevisionId>
         <PublicIdentifier/>
       </NewsIdentifier>
     </Identification>

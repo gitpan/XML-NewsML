@@ -1,7 +1,7 @@
 package XML::NewsML;
 
 use vars qw ($VERSION);
-$VERSION = '0.4';
+$VERSION = '0.5';
 
 use XML::LibXML;
 
@@ -33,6 +33,8 @@ sub addNews {
 	my %args = @_;
 
 	$args{datetime} = $this->datetime() unless $args{datetime};
+	$args{id} = 1 unless $args{id};
+	$args{revision} = 1 unless $args{revision};
 
 	my $NewsItem = new XML::LibXML::Element('NewsItem');
 	$this->{root}->appendChild($NewsItem);
@@ -52,11 +54,11 @@ sub addNews {
 	$NewsIdentifier->appendChild($DateId);
 
 	my $NewsItemId = new XML::LibXML::Element('NewsItemId');
-	$NewsItemId->appendText('1');
+	$NewsItemId->appendText($args{id});
 	$NewsIdentifier->appendChild($NewsItemId);
 
 	my $RevisionId = new XML::LibXML::Element('RevisionId');
-	$RevisionId->appendText('1');
+	$RevisionId->appendText($args{revision});
 	$RevisionId->setAttribute('PreviousRevision', '0');
 	$RevisionId->setAttribute('Update', 'N');
 	$NewsIdentifier->appendChild($RevisionId);
